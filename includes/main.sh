@@ -44,7 +44,7 @@ while true; do
         if [ -z "$fqdn" ]; then getFQDN; fi
         ./includes/linux/apache_add_vhost.sh;;
       [9]* ) # create nodemanager service
-        ./includes/nodemanager_service.sh;;
+        ./includes/oracle/nodemanager_service.sh;;
       [10]* ) # Start adminserver using nodemanager
         ./includes/oracle/nodemanager.sh ;;
       [q]* ) echo "Exiting"; break;;
