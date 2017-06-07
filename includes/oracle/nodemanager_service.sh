@@ -1,6 +1,6 @@
 #!/bin/sh
-SCRIPT=$(readlink -f $0)
-SCRIPT_PATH=$(dirname $SCRIPT)
+#SCRIPT=$(readlink -f $0)
+#SCRIPT_PATH=$(dirname $SCRIPT)
 
 . ./includes/oracle/sbs-environment.sh
 
