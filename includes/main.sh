@@ -11,7 +11,7 @@ while true; do
     echo " 4 - Change Oracle virtual hosts"
     echo " 5 - Configure ORDS"
     echo " 6 - Generate SSL certificates using Lets Encrypt"
-    echo " 7 - Setup Lets Encrypt automatic tenewal"
+    echo " 7 - Setup Lets Encrypt automatic renewal"
     echo " 8 - Create Apache (httpd) virtual hosts"
     echo " 9 - Create nodemanager Service"
     echo " 10 - Start admin server using Nodemanager"
