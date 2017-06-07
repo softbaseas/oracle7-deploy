@@ -1,0 +1,2 @@
+<!-- Added by AWO/RJ to force SSL Encryption -->
+<entry key="security.forceHTTPS">true</entry>
