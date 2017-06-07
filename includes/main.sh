@@ -22,7 +22,9 @@ while true; do
     read -p "Choice: " choice
     case $choice in
       [0]* ) # Stop webm service
-        systemctl stop webnm;;
+        echo "Stopping. Can take several minutes..."
+        systemctl stop webnm
+        systemctl status webnm;;
       [1]* ) # Setup network
         if [ -z "$fqdn" ]; then getFQDN; fi
         if [ -z "$ip1" ]; then getIP; fi
@@ -50,7 +52,9 @@ while true; do
       [9]* ) # create nodemanager service
         ./includes/oracle/nodemanager_service.sh;;
       [a]* ) # Start webnm
-        systemctl start webnm;;
+        echo "Starting. Can take several minutes..."
+        systemctl start webnm
+        systemctl status webnm;;
       [b]* ) # Start adminserver using nodemanager
         ./includes/oracle/nodemanager.sh ;;
       [q]* ) echo "Exiting"; break;;
