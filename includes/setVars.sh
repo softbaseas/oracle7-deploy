@@ -7,8 +7,8 @@ function promptValue() {
 }
 
 function getIP() {
-  ip1=$(promptValue "Enter main ip (ex: 10.174.234.5): ");
-  ip2=$(promptValue "Enter secondary ip (ex: 10.0.3.5): ");
+  ip1=$(promptValue "Enter main ip (eth0) (ex: 10.174.234.5): ");
+  ip2=$(promptValue "Enter secondary ip (eth1) (ex: 10.0.3.5): ");
   externalIP="$ip1";
   internalIP="$ip2";
 }
