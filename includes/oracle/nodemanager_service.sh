@@ -2,7 +2,7 @@
 SCRIPT=$(readlink -f $0)
 SCRIPT_PATH=$(dirname $SCRIPT)
 
-./includes/oracle/sbs-environment.sh
+. ${SCRIPT_PATH}/includes/oracle/sbs-environment.sh
 
 touch /etc/systemd/system/nodemanager.service
 chmod u+x /etc/systemd/system/nodemanager.service
