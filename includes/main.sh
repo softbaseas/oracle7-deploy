@@ -24,5 +24,6 @@ while true; do
         if [ -z "$ip" ]; then getIP; fi
         echo "fqdn: $fqdn";
         echo "ip: $externalIP $internalIP";;
+      [q]*) echo "Exiting"; break;;
     esac
 done
