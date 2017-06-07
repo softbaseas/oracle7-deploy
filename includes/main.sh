@@ -50,7 +50,7 @@ while true; do
       [9]* ) # create nodemanager service
         ./includes/oracle/nodemanager_service.sh;;
       [10]* ) # Start webnm
-        systemctl start webnm;
+        systemctl start webnm;;
       [11]* ) # Start adminserver using nodemanager
         ./includes/oracle/nodemanager.sh ;;
       [q]* ) echo "Exiting"; break;;
