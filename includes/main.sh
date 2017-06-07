@@ -5,11 +5,11 @@ source ./includes/setVars.sh
 echo "";
 
 echo "Choose one of the following possibilities:"
-echo " 1 - Setup Network"
-echo " 2 - Change Hosts Files"
-echo " 3 - Change Formsweb"
-echo " 4 - Start Admin Server using Nodemanager"
-#echo " 4 - Change Oracle vHosts"
+echo " 1 - Setup network"
+echo " 2 - Change hosts files"
+echo " 3 - Change formsweb"
+echo " 10 - Start admin server using Nodemanager"
+echo " 4 - Change Oracle virtual hosts"
 #echo " 5 - Configure ORDS"
 #echo " 6 - Generate SSL Certificates using Lets Encrypt"
 #echo " 7 - Setup Lets Encrypt Automatic Renewal"
@@ -31,7 +31,8 @@ while true; do
       [3]*) # Configure formsweb
         if [ -z "$fqdn" ]; then getFQDN; fi
         ./includes/oracle/formsweb.sh $fqdn;;
-      [4]*) # Start adminserver using nodemanager
+      [4]*) # Change Oracle vhosts
+      [10]*) # Start adminserver using nodemanager
         ./includes/oracle/nodemanager.sh ;;
       [q]*) echo "Exiting"; break;;
     esac
