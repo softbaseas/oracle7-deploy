@@ -9,7 +9,7 @@ echo " 1 - Setup network"
 echo " 2 - Change hosts files"
 echo " 3 - Change formsweb"
 echo " 4 - Change Oracle virtual hosts"
-#echo " 5 - Configure ORDS"
+echo " 5 - Configure ORDS"
 #echo " 6 - Generate SSL Certificates using Lets Encrypt"
 #echo " 7 - Setup Lets Encrypt Automatic Renewal"
 #echo " 8 - Create Apache (httpd) virtual hosts"
@@ -32,6 +32,10 @@ while true; do
         if [ -z "$fqdn" ]; then getFQDN; fi
         ./includes/oracle/formsweb.sh $fqdn;;
       [4]*) # Change Oracle vhosts
+        if [ -z "$fqdn" ]; then getFQDN; fi
+        ./includes/oracle/vhosts.sh $fqdn;
+      [5]*) # configure ords
+        ./includes/oracle/ords.sh;;
       [10]*) # Start adminserver using nodemanager
         ./includes/oracle/nodemanager.sh ;;
       [q]*) echo "Exiting"; break;;
