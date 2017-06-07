@@ -16,5 +16,5 @@ echo "Network has been changed."
 
 echo;
 
-echo "Changing hosts file..."
-./includes/change_hosts.sh "$1" "$ip"
+#echo "Changing hosts file..."
+#./includes/change_hosts.sh "$1" "$ip"
