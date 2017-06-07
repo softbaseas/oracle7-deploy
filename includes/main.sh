@@ -21,11 +21,11 @@ while true; do
     case $choice in
       [1]* ) # Setup network
         if [ -z "$fqdn" ]; then getFQDN; fi
-        if [ -z "$ip" ]; then getIP; fi
+        if [ -z "$ip1" ]; then getIP; fi
         ./includes/linux/setup_network.sh $fqdn $internalIP $externalIP;;
       [2]* ) # Setup /etc/hosts
         if [ -z "$fqdn" ]; then getFQDN; fi
-        if [ -z "$ip" ]; then getIP; fi
+        if [ -z "$ip1" ]; then getIP; fi
         ./includes/linux/setup_hosts.sh $fqdn $subdomain $externalIP;;
       [3]* ) # Configure formsweb
         if [ -z "$fqdn" ]; then getFQDN; fi
