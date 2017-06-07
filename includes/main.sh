@@ -19,6 +19,10 @@ echo " q - Exit"
 while true; do
     read -p "Choice: " choice
     case $choice in
-      [1]*) if [ -z "$fqdn" ]; then getFQDN; fi if [ -z "$ip" ]; then getIP; fi echo "fqdn: $fqdn"; echo "ip: $externalIP $internalIP";;
+      [1]*)
+        if [ -z "$fqdn" ]; then getFQDN; fi
+        if [ -z "$ip" ]; then getIP; fi
+        echo "fqdn: $fqdn";
+        echo "ip: $externalIP $internalIP";;
     esac
 done
