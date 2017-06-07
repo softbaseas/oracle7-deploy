@@ -15,8 +15,8 @@ while true; do
     echo " 7 - Setup Lets Encrypt automatic renewal"
     echo " 8 - Create Apache (httpd) virtual hosts"
     echo " 9 - Create nodemanager Service"
-    echo " 10 - Start webnm"
-    echo " 11 - Start admin server using Nodemanager"
+    echo " a - Start webnm"
+    echo " b - Start admin server using Nodemanager"
     #echo " full - Full Configuration"
     echo " q - Exit"
     read -p "Choice: " choice
@@ -49,9 +49,9 @@ while true; do
         ./includes/linux/apache_add_vhost.sh;;
       [9]* ) # create nodemanager service
         ./includes/oracle/nodemanager_service.sh;;
-      [10]* ) # Start webnm
+      [a]* ) # Start webnm
         systemctl start webnm;;
-      [11]* ) # Start adminserver using nodemanager
+      [b]* ) # Start adminserver using nodemanager
         ./includes/oracle/nodemanager.sh ;;
       [q]* ) echo "Exiting"; break;;
     esac
