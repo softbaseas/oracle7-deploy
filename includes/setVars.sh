@@ -9,8 +9,8 @@ function promptValue() {
 function getIP() {
   ip1=$(promptValue "Enter main ip (ex: 10.174.234.5): ");
   ip2=$(promptValue "Enter secondary ip (ex: 10.0.3.5): ");
-  internalIP="$ip1";
-  externalIP="$ip2";
+  externalIP="$ip1";
+  internalIP="$ip2";
 }
 
 function getFQDN() {
