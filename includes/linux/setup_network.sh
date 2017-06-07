@@ -21,6 +21,8 @@ hostnamectl set-hostname $fqdn
 
 echo "Network has been changed."
 
+echo "Do \"systemctl restart network\" and connect to the new ip address."
+
 echo;
 
 #echo "Changing hosts file..."
