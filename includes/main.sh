@@ -10,9 +10,10 @@ echo " 2 - Change hosts files"
 echo " 3 - Change formsweb"
 echo " 4 - Change Oracle virtual hosts"
 echo " 5 - Configure ORDS"
-#echo " 6 - Generate SSL Certificates using Lets Encrypt"
-#echo " 7 - Setup Lets Encrypt Automatic Renewal"
+#echo " 6 - Generate SSL certificates using Lets Encrypt"
+#echo " 7 - Setup Lets Encrypt automatic tenewal"
 #echo " 8 - Create Apache (httpd) virtual hosts"
+echo " 9 - Create nodemanager Service"
 echo " 10 - Start admin server using Nodemanager"
 #echo " full - Full Configuration"
 echo " q - Exit"
@@ -36,6 +37,8 @@ while true; do
         ./includes/oracle/vhosts.sh $fqdn;
       [5]*) # configure ords
         ./includes/oracle/ords.sh;;
+      [9]*) # create nodemanager service
+        ./includes/nodemanager_service.sh;;
       [10]*) # Start adminserver using nodemanager
         ./includes/oracle/nodemanager.sh ;;
       [q]*) echo "Exiting"; break;;
