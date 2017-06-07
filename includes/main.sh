@@ -48,7 +48,7 @@ while true; do
         ./includes/linux/le-autorenew.sh;;
       [8]* ) # Create httpd vHosts
         if [ -z "$fqdn" ]; then getFQDN; fi
-        ./includes/linux/apache_add_vhost.sh;;
+        ./includes/linux/apache_add_vhost.sh $fqdn;;
       [9]* ) # create nodemanager service
         ./includes/oracle/nodemanager_service.sh;;
       [a]* ) # Start webnm
