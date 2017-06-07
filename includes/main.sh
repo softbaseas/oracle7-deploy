@@ -5,6 +5,7 @@ source ./includes/setVars.sh
 while true; do
     echo "";
     echo "Choose one of the following possibilities:"
+    echo " 0 - Stop webnm"
     echo " 1 - Setup network"
     echo " 2 - Change hosts files"
     echo " 3 - Change formsweb"
@@ -14,11 +15,14 @@ while true; do
     echo " 7 - Setup Lets Encrypt automatic renewal"
     echo " 8 - Create Apache (httpd) virtual hosts"
     echo " 9 - Create nodemanager Service"
-    echo " 10 - Start admin server using Nodemanager"
+    echo " 10 - Start webnm"
+    echo " 11 - Start admin server using Nodemanager"
     #echo " full - Full Configuration"
     echo " q - Exit"
     read -p "Choice: " choice
     case $choice in
+      [0]* ) # Stop webm service
+        systemctl stop webnm;;
       [1]* ) # Setup network
         if [ -z "$fqdn" ]; then getFQDN; fi
         if [ -z "$ip1" ]; then getIP; fi
@@ -45,7 +49,9 @@ while true; do
         ./includes/linux/apache_add_vhost.sh;;
       [9]* ) # create nodemanager service
         ./includes/oracle/nodemanager_service.sh;;
-      [10]* ) # Start adminserver using nodemanager
+      [10]* ) # Start webnm
+        systemctl start webnm;
+      [11]* ) # Start adminserver using nodemanager
         ./includes/oracle/nodemanager.sh ;;
       [q]* ) echo "Exiting"; break;;
     esac

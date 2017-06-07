@@ -10,4 +10,4 @@ nmStart("AdminServer", props=prps)
 exit()
 EOF
 
-echo "Nodemanager configured";
+echo "Aadminserver configured";
