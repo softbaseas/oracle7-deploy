@@ -5,7 +5,7 @@ source ./includes/setVars.sh
 echo "";
 
 echo "Choose one of the following possibilities:"
-#echo " 1 - Setup Network"
+echo " 1 - Setup Network"
 #echo " 2 - Change Hosts Files"
 #echo " 3 - Change Formsweb"
 #echo " 4 - Change Oracle vHosts"
@@ -22,8 +22,8 @@ while true; do
       [1]*)
         if [ -z "$fqdn" ]; then getFQDN; fi
         if [ -z "$ip" ]; then getIP; fi
-        echo "fqdn: $fqdn";
-        echo "ip: $externalIP $internalIP";;
+        echo "sub=$subdomain";;
+        #./includes/linux/setup_network.sh $fqdn $internalIP $externalIP;;
       [q]*) echo "Exiting"; break;;
     esac
 done
