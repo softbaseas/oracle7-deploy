@@ -12,6 +12,9 @@ nmcli g hostname $fqdn
 nmcli con mod eth0 ipv4.addr $external ipv4.gateway 10.174.234.1
 nmcli con mod eth1 ipv4.addr $internal
 
+hostname $fqdn;
+hostnamectl set-hostname $fqdn
+
 echo "Network has been changed."
 
 echo;
