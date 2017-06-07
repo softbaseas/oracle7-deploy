@@ -13,8 +13,8 @@ echo "External = $external"
 echo "Internal = $internal"
 
 nmcli g hostname $fqdn
-nmcli con mod eth0 ipv4.addr $external ipv4.gateway $gateway ipv4.dns "$dns1 $dns2"
-nmcli con mod eth1 ipv4.addr $internal
+nmcli con mod eth0 ipv4.addr $external/24 ipv4.gateway $gateway ipv4.dns "$dns1 $dns2"
+nmcli con mod eth1 ipv4.addr $internal/24
 
 hostname $fqdn;
 hostnamectl set-hostname $fqdn
