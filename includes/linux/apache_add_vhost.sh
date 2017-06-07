@@ -56,7 +56,7 @@ while true; do
     read -p "Restart Apache and Tomcat [Y/n]? " yn
     case $yn in
         [Nn]* ) echo "Do systemctl restart httpd && systemctl restart tomcat when needed."; break;;
-        * ) service httpd restart; service tomcat restart; echo "Restarted HTTPD and Tomcat."break;;
+        * ) service httpd restart; service tomcat restart; echo "Restarted HTTPD and Tomcat."; break;;
     esac
 done
 
@@ -64,7 +64,7 @@ while true; do
     read -p "Enable Apache and Tomcat on reboot [Y/n]? " yn
     case $yn in
         [Nn]* ) break;;
-        * ) update-rc.d httpd defaults; update-rc.d tomcat defaults; echo "Enabled auto start for HTTPD and Tomcat."break;;
+        * ) update-rc.d httpd defaults; update-rc.d tomcat defaults; echo "Enabled auto start for HTTPD and Tomcat."; break;;
     esac
 done
 
