@@ -2,7 +2,10 @@
 #SCRIPT=$(readlink -f $0)
 #SCRIPT_PATH=$(dirname $SCRIPT)
 
-. ./includes/oracle/sbs-environment.sh
+export ORACLE_INSTALL_USER=oracle
+export ORACLE_INSTALL_GROUP=oinstall
+export DOMAIN_CONFIGURATION_HOME=/home/oracle/Oracle/Middleware12c/ofr1/user_projects/domains/SBErpc12
+export NODE_MANAGER_HOME=/home/oracle/Oracle/Middleware12c/ofr1/user_projects/domains/SBErpc12/nodemanager
 
 touch /etc/systemd/system/nodemanager.service
 chmod u+x /etc/systemd/system/nodemanager.service
