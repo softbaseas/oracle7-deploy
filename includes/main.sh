@@ -35,12 +35,12 @@ while true; do
         ./includes/oracle/vhosts.sh $fqdn;
       [5]*) # configure ords
         ./includes/oracle/ords.sh;;
-      [6]* ) # Generate SSL Certificates using Lets Encrypt
+      [6]*) # Generate SSL Certificates using Lets Encrypt
         if [ -z "$fqdn" ]; then getFQDN; fi
         ./includes/linux/letsencrypt.sh $fqdn;;
-      [7]* ) # Enable Lets Encrypt Automatic Renewal
+      [7]*) # Enable Lets Encrypt Automatic Renewal
         ./includes/linux/le-autorenew.sh;;
-      [8]* ) # Create httpd vHosts
+      [8]*) # Create httpd vHosts
         if [ -z "$fqdn" ]; then getFQDN; fi
         ./includes/linux/apache_add_vhost.sh;;
       [9]*) # create nodemanager service
