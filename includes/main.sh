@@ -32,7 +32,7 @@ while true; do
         ./includes/oracle/formsweb.sh $fqdn;;
       [4]* ) # Change Oracle vhosts
         if [ -z "$fqdn" ]; then getFQDN; fi
-        ./includes/oracle/vhosts.sh $fqdn;
+        ./includes/oracle/vhosts.sh $fqdn;;
       [5]* ) # configure ords
         ./includes/oracle/ords.sh;;
       [6]* ) # Generate SSL Certificates using Lets Encrypt
