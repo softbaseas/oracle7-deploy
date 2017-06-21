@@ -25,48 +25,22 @@ else
     echo "File created."
 fi
 
-# Enable page?
-while true; do
-    read -p "Do you wish to enable the virtual host now [Y/n]? " yn
-    case $yn in
-        [Nn]* ) echo "No: Add symlink to /etc/httpd/sites-enabled/ when needed."; break;;
-        * ) ln -s /etc/httpd/sites-available/002-$fqdn.conf /etc/httpd/sites-enabled/;break;;
-    esac
-done
+# Enable ords proxy
+ln -s /etc/httpd/sites-available/002-$fqdn.conf /etc/httpd/sites-enabled/;
+# Enable reports
+ln -s /home/oracle/Oracle/Middleware12c/ofr_1/user_projects/domains/SBErp12c/config/fmwconfig/components/ReportsServerComponent/reports_ohs.conf /etc/httpd/sites-enabled/;
+# Enable Forms
+ln -s /home/oracle/Oracle/Middleware12c/ofr_1/user_projects/domains/SBErp12c/config/fmwconfig/components/FORMS/instances/forms1/server/forms.conf /etc/httpd/sites-enabled/;
 
-# Enable Reports?
-while true; do
-    read -p "Do you wish to enable the Reports OHS now [Y/n]? " yn
-    case $yn in
-        [Nn]* ) echo "No: Add symlink to /etc/httpd/sites-enabled/ when needed."; break;;
-        * ) ln -s /home/oracle/Oracle/Middleware12c/ofr_1/user_projects/domains/SBErp12c/config/fmwconfig/components/ReportsServerComponent/reports_ohs.conf /etc/httpd/sites-enabled/;break;;
-    esac
-done
+# Restart apache and tomcat
+service httpd restart;
+service tomcat restart;
+echo "Restarted httpd and Tomcat.";
 
-# Enable Forms?
-while true; do
-    read -p "Do you wish to enable the Forms now [Y/n]? " yn
-    case $yn in
-        [Nn]* ) echo "No: Add symlink to /etc/httpd/sites-enabled/ when needed."; break;;
-        * ) ln -s /home/oracle/Oracle/Middleware12c/ofr_1/user_projects/domains/SBErp12c/config/fmwconfig/components/FORMS/instances/forms1/server/forms.conf /etc/httpd/sites-enabled/;break;;
-    esac
-done
-
-while true; do
-    read -p "Restart Apache and Tomcat [Y/n]? " yn
-    case $yn in
-        [Nn]* ) echo "Do systemctl restart httpd && systemctl restart tomcat when needed."; break;;
-        * ) service httpd restart; service tomcat restart; echo "Restarted HTTPD and Tomcat."; break;;
-    esac
-done
-
-while true; do
-    read -p "Enable Apache and Tomcat on reboot [Y/n]? " yn
-    case $yn in
-        [Nn]* ) break;;
-        * ) update-rc.d httpd defaults; update-rc.d tomcat defaults; echo "Enabled auto start for HTTPD and Tomcat."; break;;
-    esac
-done
+# Enable apache and tomcat
+systemctl enable httpd;
+systemctl enable tomcat;
+echo "Enabled auto start for httpd and Tomcat.";
 
 echo "Virtual hosts added to httpd."
 
