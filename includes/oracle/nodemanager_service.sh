@@ -27,3 +27,4 @@ WantedBy=default.target" > /etc/systemd/system/nodemanager.service
 
 systemctl daemon-reload
 systemctl enable nodemanager.service
+systemctl start nodemanager.service
