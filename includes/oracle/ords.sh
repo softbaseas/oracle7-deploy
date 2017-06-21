@@ -1,60 +1,30 @@
 #!/bin/bash
 cd /home/tomcat/ordstomcat/
-read -p "Enter name for database Server: " db_server
-read -p "Enter port for database server (1521): " db_port
-read -p "Enter name database dame: " db_name
-echo -n "Enter password for ORDS_PUBLIC_USER:  "
-read -s ords_pwd
-echo -n "Enter password for mm1: "
-read -s mm1_pwd
+#read -p "Enter name for database Server: " db_server
+#read -p "Enter port for database server (1521): " db_port
+#read -p "Enter name database dame: " db_name
+#echo -n "Enter password for ORDS_PUBLIC_USER:  "
+#read -s ords_pwd
+#echo -n "Enter password for mm1: "
+#read -s mm1_pwd
 
-if [ -z ${db_port} ]; then
-    db_port="1521"
-fi
+#if [ -z ${db_port} ]; then
+#    db_port="1521"
+#fi
 
-echo;
+#echo;
 
-echo "Database Server           = $db_server"
-echo "Database Port             = $db_port"
-echo "Database Name             = $db_name"
-echo "ORDS_PUBLIC_USER Password = $ords_pwd"
-echo "mm1 Password              = $mm1_pwd"
-
-while true; do
-    read -p "Is the information above correct [Y/n]? " yn
-    case $yn in
-        [Nn]* ) exit; break;;
-        * ) echo "Continueing...";break;;
-    esac
-done
-
-java -jar ords.war install advanced << EOF
-ordstomcatconfig
-$db_server
-$db_port
-1
-$db_name
-1
-$ords_pwd
-$ords_pwd
-1
-mm1
-$mm1_pwd
-$mm1_pwd
-$ords_pwd
-$ords_pwd
-$ords_pwd
-$ords_pwd
-2
-EOF
-
-echo "ORDS Install complete."
+#echo "Database Server           = $db_server"
+#echo "Database Port             = $db_port"
+#echo "Database Name             = $db_name"
+#echo "ORDS_PUBLIC_USER Password = $ords_pwd"
+#echo "mm1 Password              = $mm1_pwd"
 
 while true; do
-    read -p "Configure RESTful [Y/n]? " yn
+    read -p "Has ORDS already been configured [Y/n]? " yn
     case $yn in
-        [Nn]* ) exit; break;;
-        * ) ./includes/oracle/restful.sh $db_pwd;break;;
+        [Nn]* ) echo "ORDS needs to be configured before deploying to Tomcat. Configuration has to be done manually."; exit; break;;
+        * ) echo "Deploying ORDS to Tomcat...";break;;
     esac
 done
 
@@ -68,4 +38,12 @@ sed '/<\/properties>/{
 chown -R tomcat:tomcat /home/tomcat
 ln -s /home/ordstomcat/ords.war /usr/share/tomcat/webapps/
 
-echo "ORDS installed in tomcat."
+echo "ORDS deployed."
+
+while true; do
+    read -p "Configure Apex Rest [Y/n]? " yn
+    case $yn in
+        [Nn]* ) exit; break;;
+        * ) ./includes/oracle/restful.sh $db_pwd;break;;
+    esac
+done
