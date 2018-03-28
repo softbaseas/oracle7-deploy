@@ -1,6 +1,6 @@
 #!/bin/bash
 
-hostname=$1
+fqdn=$1
 external=$2;
 internal=$3;
 
@@ -8,7 +8,7 @@ read -p "Gateway ip (eth0): " gateway
 read -p "DNS1 (eth0): " dns1
 read -p "DNS2 (eth0): " dns2
 
-echo "Hostname = $hostname"
+echo "Hostname = $fqdn"
 echo "External = $external"
 echo "Internal = $internal"
 
