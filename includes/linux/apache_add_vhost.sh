@@ -28,9 +28,9 @@ fi
 # Enable ords proxy
 ln -s /etc/httpd/sites-available/002-$fqdn.conf /etc/httpd/sites-enabled/;
 # Enable reports
-ln -s /home/oracle/Oracle/Middleware12c/ofr_1/user_projects/domains/SBErp12c/config/fmwconfig/components/ReportsServerComponent/reports_ohs.conf /etc/httpd/sites-enabled/;
+ln -s /etc/httpd/sites-available/reports_ohs.conf /etc/httpd/sites-enabled/;
 # Enable Forms
-ln -s /home/oracle/Oracle/Middleware12c/ofr_1/user_projects/domains/SBErp12c/config/fmwconfig/components/FORMS/instances/forms1/server/forms.conf /etc/httpd/sites-enabled/;
+ln -s /etc/httpd/sites-available/forms.conf /etc/httpd/sites-enabled/;
 
 # Restart apache and tomcat
 service httpd restart;
